@@ -34,10 +34,10 @@ server 'server2', user: 'deploy', roles: %w{db}, no_release: true
 
 Then you should be able to do something like this:
 
-    $ cap production shell
-    $ cap production shell ROLES=app
-    $ cap production shell HOSTS=server1
-    $ cap production shell HOSTS=server2
+    $ cap production -n shell
+    $ cap production -n shell ROLES=app
+    $ cap production -n shell HOSTS=server1
+    $ cap production -n shell HOSTS=server2
 
 When connecting to `server1` ssh will cd into `/var/www/your_app/current` directory(`release_path`). But when connecting to `server2` just `/home/deploy` will be opened because `server2` is marked as `no_release`.
 
