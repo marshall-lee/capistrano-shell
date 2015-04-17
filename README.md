@@ -43,6 +43,14 @@ When connecting to `server1` ssh will cd into `/var/www/your_app/current` direct
 
 In the last two example the `HOSTS` environment variable is used. However, you probably don't need to use it because `capistrano/shell` asks you what server to use when there are many.
 
+### Shell command
+
+It is possible to redefine shell command (by default `$SHELL --login` is used):
+
+```ruby
+set :shell_cmd, '/bin/zsh -l'
+```
+
 ## Contributing
 
 1. Fork it ( https://github.com/marshall-lee/capistrano-shell/fork )
