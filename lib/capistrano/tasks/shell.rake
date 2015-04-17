@@ -48,6 +48,6 @@ end
 namespace :load do
   task :defaults do
     set :shell_server_number, ask('server number', 1)
-    set :shell_cmd, '$SHELL'
+    set :shell_cmd, '$SHELL --login'
   end
 end
