@@ -33,10 +33,12 @@ task :shell do
   user_hostname = [options[:user], host.hostname].compact.join('@')
   cmd << user_hostname
 
+  shell_cmd = fetch :shell_cmd
+
   if host.properties.fetch(:no_release)
-    cmd << '$SHELL'
+    cmd << shell_cmd
   else
-    cmd << "cd #{release_path} && $SHELL"
+    cmd << "cd #{release_path} && #{shell_cmd}"
   end
 
   puts "Executing #{cmd.join ' '}"
@@ -46,5 +48,6 @@ end
 namespace :load do
   task :defaults do
     set :shell_server_number, ask('server number', 1)
+    set :shell_cmd, '$SHELL'
   end
 end
